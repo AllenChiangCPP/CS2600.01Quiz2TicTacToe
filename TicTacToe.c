@@ -2,17 +2,49 @@
 //#include <stdlib.h>
 //Tic Tac Toe game between 2 players or player vs computer
 
-int playerVsPlayer() //player vs player game, prints who is the winner and who is the lower
+int playerVsPlayer() //player vs player game, prints who is the winner 
 {
-    //encase in while loop for game duration, prints who is the winner and who is the user
+    //encase in while loop for game duration, ends if there is a winner or draw
+
+    //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for player 2
+        //0|1|2
+        //3|4|5
+        //6|7|8
+    
+    //asks player 1 for input and checks validity
+
+    //asks player 2 for input and checks validity 
+
+    //runs win checker to see if there is a winner or draw
+
     return 0;
 }
-int playerVsComputer()
+int playerVsComputer() //player vs computer game, prints who is the winner, computer picks random numbers
 {
+    //encase in while loop for game duration, ends if there is a winner or draw
+
+    //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for computer
+        //0|1|2
+        //3|4|5
+        //6|7|8
+
+    //asks player 1 for input and checks validity
+
+    //computer randomly generates a number, if number is invalid regenerates a number
+        //or make computer generate from a list of 0-8, with a number in the list being taken away if player 1 has already picked the space
+
+    //runs win checker to see if there is a winner or draw
+
+
     return 0;
 }
-int winChecker(char givenBoard[8]) //function that checks if there is a winner based on inputted array
+int winChecker(int givenBoard[8]) //function that checks if there is a winner based on inputted array
 {
+    //switch statements
+        //row: 0 = 1 = 2, 3 = 4 = 5, 6 = 7 = 8
+        //column: 0 = 3 = 6, 1 = 4 = 6. 6 = 7 = 8
+        //diagonal: 0 = 4 = 8, 2 = 4 = 6
+        //if given int array is full and no winner, declare a draw
     return 0;
 }
 
@@ -24,10 +56,11 @@ int main()
         int userGamePick;
         int userInputPlayAgain;
         //int pickGameStatus = 1; //int for while loop, if while loop is 1
-        //create an empty board, a character array with a size of 8 to represent the grid
+        //create an empty board, an int array with a size of 8 to represent the grid, player 1 is represented as 1 in the code while player 2 is represented as 2
         //  0,1,2
         //  3,4,5
         //  6,7,8
+        int gameBoard[8];
         printf("WELCOME TO TIC TAC TOE!\n");
         //if 1 is chosen, break out of loop, starts player v player game as playerVsPlayer() function
         //if 2 is chosen, break out of loop, start player vs computer game as playerVsComputer() function
@@ -59,6 +92,8 @@ int main()
         {
             playerVsComputer();
         }
+        //ask the user if they want to play again, 1 == yes, 2 == no
+        //if user inputs 1, loop continues, if user inputs 2, exit loop, if neither 1 or 2, print invalid input 
         while (1)
         {
             printf("Would you like to play again? \n");
@@ -79,8 +114,7 @@ int main()
             getchar();
         }
         
-        //ask the user if they want to play again, 1 == yes, 2 == no
-        //if user inputs 1, loop continues, if user inputs 2, exit loop, if neither 1 or 2, print invalid input 
+        
     }
     
    
