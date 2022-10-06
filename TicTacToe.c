@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+//#include <stdlib.h>
 //Tic Tac Toe game between 2 players or player vs computer
 
 int playerVsPlayer() //player vs player game, prints who is the winner and who is the lower
@@ -17,9 +18,11 @@ int winChecker(char givenBoard[8]) //function that checks if there is a winner b
 
 int main()
 {
-    while (1)
+    int userPlayAgain = 1;
+    while (userPlayAgain == 1)
     {
         int userGamePick;
+        int userInputPlayAgain;
         //int pickGameStatus = 1; //int for while loop, if while loop is 1
         //create an empty board, a character array with a size of 8 to represent the grid
         //  0,1,2
@@ -56,6 +59,26 @@ int main()
         {
             playerVsComputer();
         }
+        while (1)
+        {
+            printf("Would you like to play again? \n");
+            printf("1: Yes \n");
+            printf("2: No \n");
+            scanf("%d", &userInputPlayAgain);
+            if (userInputPlayAgain == 1)
+            {
+                break;
+            }
+            if (userInputPlayAgain == 2)
+            {
+                printf("Goodbye. \n");
+                userPlayAgain = 2;
+                break;
+            }
+            printf("INVALID RESPONSE\n");
+            getchar();
+        }
+        
         //ask the user if they want to play again, 1 == yes, 2 == no
         //if user inputs 1, loop continues, if user inputs 2, exit loop, if neither 1 or 2, print invalid input 
     }
