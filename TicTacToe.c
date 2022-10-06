@@ -1,9 +1,9 @@
 #include<stdio.h>
 //Tic Tac Toe game between 2 players or player vs computer
 
-int playerVsPlayer() //player vs player game, if 
+int playerVsPlayer() //player vs player game, prints who is the winner and who is the lower
 {
-    //encase in while loop for game duration, maybe use a 2d array to track the game?
+    //encase in while loop for game duration, prints who is the winner and who is the user
     return 0;
 }
 int playerVsComputer()
@@ -21,7 +21,9 @@ int main()
         //  0,1,2
         //  3,4,5
         //  6,7,8
-
+    printf("WELCOME TO TIC TAC TOE!\n");
+    printf("1: Person vs. Person\n");
+    printf("2: Person vs. Computer\n");
     //prompt user for game they wish to play, encase in loop, break if user inputs a valid unput
     
     //read information from console, 1 = player vs player, 2 = player vs computer, anything else = invalid input
