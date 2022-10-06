@@ -17,13 +17,34 @@ int winChecker(int givenBoard[8]) //function that checks if there is a winner ba
 
 int main()
 {
+    int userGamePick;
+    int pickGameStatus = 1; //int for while loop, if while loop is 1
     //create an empty board, an int array with a size of 8 to represent the grid
         //  0,1,2
         //  3,4,5
         //  6,7,8
     printf("WELCOME TO TIC TAC TOE!\n");
-    printf("1: Person vs. Person\n");
-    printf("2: Person vs. Computer\n");
+    while (pickGameStatus == 1)
+    {
+        int userGameInput;
+        printf("1: Person vs. Person\n");
+        printf("2: Person vs. Computer\n");
+        printf("Enter your choice (1 or 2): \n");
+        scanf("%d", &userGameInput);
+        if (userGameInput == 1 || userGameInput == 2)
+        {
+            userGamePick = userGameInput;
+            break;
+        }
+        else
+        {
+            printf("INVALID RESPONSE\n");
+            //pickGameStatus = 1;
+        }
+    }
+    printf("You have entered choice %d\n", userGamePick);
+    
+    
     //prompt user for game they wish to play, encase in loop, break if user inputs a valid unput
     
     //read information from console, 1 = player vs player, 2 = player vs computer, anything else = invalid input
