@@ -106,8 +106,8 @@ int winChecker(char givenBoard[9]) //function that checks if there is a winner b
         }
     }
     //FULL BOARD
-    else if(givenBoard[0] != '1',givenBoard[1] != '2',givenBoard[2] != '3',givenBoard[3] != '4',
-    givenBoard[4] != '5',givenBoard[5] != '6',givenBoard[6] != '7',givenBoard[7] != '8',givenBoard[8] != '9')
+    else if(givenBoard[0] != '1'&& givenBoard[1] != '2'&& givenBoard[2] != '3'&& givenBoard[3] != '4' &&
+    givenBoard[4] != '5'&& givenBoard[5] != '6'&& givenBoard[6] != '7' && givenBoard[7] != '8' && givenBoard[8] != '9')
     {
         return 3;
     }
@@ -134,7 +134,7 @@ int playerVsPlayer() //player vs player game, prints who is the winner
         //  7,8,9
         //char array will be filled with number 0 - 8 to represent available spaces on the board and be replaced by Xs or Os by the players or computers
         
-        printf("You have entered choice 1, player vs player.\n");
+        //printf("You have entered choice 1, player vs player.\n");
         //print empty gameboard as test
 
         //encase in while loop for game duration, ends if there is a winner or draw
@@ -143,7 +143,7 @@ int playerVsPlayer() //player vs player game, prints who is the winner
         boardPrinter(gameBoard);
         while (1)
         {
-            int player1Input;
+            int player1Input = 10;
             printf("Player 1 Turn: \n");
             scanf("%d", &player1Input);
             if (gameBoard[player1Input-1] != 'X' && gameBoard[player1Input-1] != 'O' && player1Input > 0 && player1Input < 10)
@@ -175,7 +175,7 @@ int playerVsPlayer() //player vs player game, prints who is the winner
         boardPrinter(gameBoard);
         while (1)
         {
-            int player2Input;
+            int player2Input = 10;
             printf("Player 2 Turn: \n");
             scanf("%d", &player2Input);
             if (gameBoard[player2Input-1] != 'X' && gameBoard[player2Input-1] != 'O' && player2Input > 0 && player2Input < 10)
@@ -257,9 +257,10 @@ int main()
             getchar();
             //pickGameStatus = 1;
         }
-        printf("You have entered choice %d\n", userGamePick);
+        //printf("You have entered choice %d\n", userGamePick);
         if (userGamePick == 1)
         {
+            printf("You have entered choice 1, player vs player.\n");
             playerVsPlayer();
         }
         if (userGamePick == 2)
