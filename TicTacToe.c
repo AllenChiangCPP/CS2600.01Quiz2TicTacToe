@@ -4,6 +4,22 @@
 
 int playerVsPlayer() //player vs player game, prints who is the winner 
 {
+    //create an empty board, an char array with a size of 8 to represent the grid, player 1 is represented as X while player 2 is represented as O
+        //  1,2,3
+        //  4,5,6
+        //  7,8,9
+    //char array will be filled with number 0 - 8 to represent available spaces on the board and be replaced by Xs or Os by the players or computers
+    char gameBoard[9] = {'1','2','3','4','5','6','7','8','9'}; 
+    printf("You have entered choice 1, player vs player.\n");
+    //print empty gameboard as test
+    printf("+-----------+\n");
+    printf("| %c | %c | %c | \n",gameBoard[0], gameBoard[1], gameBoard[2]);
+    printf("+-----------+\n");
+    printf("| %c | %c | %c | \n",gameBoard[3], gameBoard[4], gameBoard[5]);
+    printf("+-----------+\n");
+    printf("| %c | %c | %c | \n",gameBoard[6], gameBoard[7], gameBoard[8]);
+    printf("+-----------+\n");
+
     //encase in while loop for game duration, ends if there is a winner or draw
 
     //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for player 2
@@ -56,11 +72,7 @@ int main()
         int userGamePick;
         int userInputPlayAgain;
         //int pickGameStatus = 1; //int for while loop, if while loop is 1
-        //create an empty board, an int array with a size of 8 to represent the grid, player 1 is represented as 1 in the code while player 2 is represented as 2
-        //  0,1,2
-        //  3,4,5
-        //  6,7,8
-        int gameBoard[8];
+        
         printf("WELCOME TO TIC TAC TOE!\n");
         //if 1 is chosen, break out of loop, starts player v player game as playerVsPlayer() function
         //if 2 is chosen, break out of loop, start player vs computer game as playerVsComputer() function
