@@ -10,7 +10,7 @@ int playerVsComputer()
 {
     return 0;
 }
-int winChecker(int givenBoard[8]) //function that checks if there is a winner based on inputted array
+int winChecker(char givenBoard[8]) //function that checks if there is a winner based on inputted array
 {
     return 0;
 }
@@ -18,13 +18,13 @@ int winChecker(int givenBoard[8]) //function that checks if there is a winner ba
 int main()
 {
     int userGamePick;
-    int pickGameStatus = 1; //int for while loop, if while loop is 1
-    //create an empty board, an int array with a size of 8 to represent the grid
+    //int pickGameStatus = 1; //int for while loop, if while loop is 1
+    //create an empty board, a character array with a size of 8 to represent the grid
         //  0,1,2
         //  3,4,5
         //  6,7,8
     printf("WELCOME TO TIC TAC TOE!\n");
-    while (pickGameStatus == 1)
+    while (1)
     {
         int userGameInput;
         printf("1: Person vs. Person\n");
@@ -36,11 +36,9 @@ int main()
             userGamePick = userGameInput;
             break;
         }
-        else
-        {
-            printf("INVALID RESPONSE\n");
+        printf("INVALID RESPONSE\n");
+        getchar();
             //pickGameStatus = 1;
-        }
     }
     printf("You have entered choice %d\n", userGamePick);
     
