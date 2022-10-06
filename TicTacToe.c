@@ -2,37 +2,207 @@
 //#include <stdlib.h>
 //Tic Tac Toe game between 2 players or player vs computer
 
+int winChecker(char givenBoard[9]) //function that checks if there is a winner based on inputted array
+{
+    //0 1 2
+    //3 4 5
+    //6 7 8
+    //if else statements:
+        //row: 0 = 1 = 2, 3 = 4 = 5, 6 = 7 = 8
+        //column: 0 = 3 = 6, 1 = 4 = 7, 2 = 5 = 8
+        //diagonal: 0 = 4 = 8, 2 = 4 = 6
+            //after checking either row, column, or diagonal all equal, checks if symbol is X or O to determine which player wins
+        //if given int array is full and no winner, declare a draw
+        //return 1 for player 1 win, 2 for player 2 win, 3 for draw, 0 by default
+    //ROW CHECKS
+    if(givenBoard[0] == givenBoard[1] && givenBoard[1] == givenBoard[2]) 
+    {
+        if(givenBoard[0] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[0] == 'O')
+        {
+            return 2;
+        }
+    }
+    else if(givenBoard[3] == givenBoard[4] && givenBoard[4] == givenBoard[5]) 
+    {
+        if(givenBoard[3] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[3] == 'O')
+        {
+            return 2;
+        }
+    }
+    else if(givenBoard[6] == givenBoard[7] && givenBoard[7] == givenBoard[8]) 
+    {
+        if(givenBoard[6] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[6] == 'O')
+        {
+            return 2;
+        }
+    }
+    //COLUMN CHECKS
+    else if(givenBoard[0] == givenBoard[3] && givenBoard[3] == givenBoard[6]) 
+    {
+        if(givenBoard[0] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[0] == 'O')
+        {
+            return 2;
+        }
+    }
+    else if(givenBoard[1] == givenBoard[4] && givenBoard[4] == givenBoard[7]) 
+    {
+        if(givenBoard[1] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[1] == 'O')
+        {
+            return 2;
+        }
+    }
+    else if(givenBoard[2] == givenBoard[5] && givenBoard[5] == givenBoard[8]) 
+    {
+        if(givenBoard[2] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[2] == 'O')
+        {
+            return 2;
+        }
+    }
+    //DIAGONAL
+    else if(givenBoard[0] == givenBoard[4] && givenBoard[4] == givenBoard[8]) 
+    {
+        if(givenBoard[0] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[0] == 'O')
+        {
+            return 2;
+        }
+    }
+    else if(givenBoard[2] == givenBoard[4] && givenBoard[4] == givenBoard[6]) 
+    {
+        if(givenBoard[2] == 'X')
+        {
+            return 1;
+        }
+        if(givenBoard[2] == 'O')
+        {
+            return 2;
+        }
+    }
+    //FULL BOARD
+    else if(givenBoard[0] != '1',givenBoard[1] != '2',givenBoard[2] != '3',givenBoard[3] != '4',
+    givenBoard[4] != '5',givenBoard[5] != '6',givenBoard[6] != '7',givenBoard[7] != '8',givenBoard[8] != '9')
+    {
+        return 3;
+    }
+    return 0;
+}
+void boardPrinter(char givenBoard[9]) //fuction that takes a char array and prints the board
+{
+    printf("+-----------+\n");
+    printf("| %c | %c | %c | \n",givenBoard[0], givenBoard[1], givenBoard[2]);
+    printf("+-----------+\n");
+    printf("| %c | %c | %c | \n",givenBoard[3], givenBoard[4], givenBoard[5]);
+    printf("+-----------+\n");
+    printf("| %c | %c | %c | \n",givenBoard[6], givenBoard[7], givenBoard[8]);
+    printf("+-----------+\n");
+}
 int playerVsPlayer() //player vs player game, prints who is the winner 
 {
-    //create an empty board, an char array with a size of 8 to represent the grid, player 1 is represented as X while player 2 is represented as O
+    char gameBoard[9] = {'1','2','3','4','5','6','7','8','9'}; 
+    while(1)
+    {
+        //create an empty board, an char array with a size of 8 to represent the grid, player 1 is represented as X while player 2 is represented as O
         //  1,2,3
         //  4,5,6
         //  7,8,9
-    //char array will be filled with number 0 - 8 to represent available spaces on the board and be replaced by Xs or Os by the players or computers
-    char gameBoard[9] = {'1','2','3','4','5','6','7','8','9'}; 
-    printf("You have entered choice 1, player vs player.\n");
-    //print empty gameboard as test
-    printf("+-----------+\n");
-    printf("| %c | %c | %c | \n",gameBoard[0], gameBoard[1], gameBoard[2]);
-    printf("+-----------+\n");
-    printf("| %c | %c | %c | \n",gameBoard[3], gameBoard[4], gameBoard[5]);
-    printf("+-----------+\n");
-    printf("| %c | %c | %c | \n",gameBoard[6], gameBoard[7], gameBoard[8]);
-    printf("+-----------+\n");
+        //char array will be filled with number 0 - 8 to represent available spaces on the board and be replaced by Xs or Os by the players or computers
+        
+        printf("You have entered choice 1, player vs player.\n");
+        //print empty gameboard as test
 
-    //encase in while loop for game duration, ends if there is a winner or draw
+        //encase in while loop for game duration, ends if there is a winner or draw
+        
+        //asks player 1 for input and checks validity
+        boardPrinter(gameBoard);
+        while (1)
+        {
+            int player1Input;
+            printf("Player 1 Turn: \n");
+            scanf("%d", &player1Input);
+            if (gameBoard[player1Input-1] != 'X' && gameBoard[player1Input-1] != 'O' && player1Input > 0 && player1Input < 10)
+            {
+                gameBoard[player1Input-1] = 'X';
+                break;
+            }
+            printf("INVALID RESPONSE\n");
+            getchar();
+        }
+        if(winChecker(gameBoard) == 1)
+        {
+            printf("Player 1 wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 2)
+        {
+            printf("Player 2 wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 3)
+        {
+            printf("Draw!\n");
+            break;
+        }
+        //runs win checker to see if there is a winner or draw
 
-    //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for player 2
-        //0|1|2
-        //3|4|5
-        //6|7|8
+        //asks player 2 for input and checks validity 
+        boardPrinter(gameBoard);
+        while (1)
+        {
+            int player2Input;
+            printf("Player 2 Turn: \n");
+            scanf("%d", &player2Input);
+            if (gameBoard[player2Input-1] != 'X' && gameBoard[player2Input-1] != 'O' && player2Input > 0 && player2Input < 10)
+            {
+                gameBoard[player2Input-1] = 'O';
+                break;
+            }
+            printf("INVALID RESPONSE\n");
+            getchar();
+        }
+        if(winChecker(gameBoard) == 1)
+        {
+            printf("Player 1 wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 2)
+        {
+            printf("Player 2 wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 3)
+        {
+            printf("Draw!\n");
+            break;
+        }
+    }
     
-    //asks player 1 for input and checks validity
-
-    //asks player 2 for input and checks validity 
-
-    //runs win checker to see if there is a winner or draw
-
     return 0;
 }
 int playerVsComputer() //player vs computer game, prints who is the winner, computer picks random numbers
@@ -54,15 +224,7 @@ int playerVsComputer() //player vs computer game, prints who is the winner, comp
 
     return 0;
 }
-int winChecker(int givenBoard[8]) //function that checks if there is a winner based on inputted array
-{
-    //switch statements
-        //row: 0 = 1 = 2, 3 = 4 = 5, 6 = 7 = 8
-        //column: 0 = 3 = 6, 1 = 4 = 6. 6 = 7 = 8
-        //diagonal: 0 = 4 = 8, 2 = 4 = 6
-        //if given int array is full and no winner, declare a draw
-    return 0;
-}
+
 
 int main()
 {
