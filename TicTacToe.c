@@ -207,6 +207,7 @@ int playerVsPlayer() //player vs player game, prints who is the winner
 }
 int playerVsComputer() //player vs computer game, prints who is the winner, computer picks random numbers
 {
+    //copy most of the code from player vs player, modify player 2 section 
     //encase in while loop for game duration, ends if there is a winner or draw
 
     //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for computer
@@ -215,6 +216,8 @@ int playerVsComputer() //player vs computer game, prints who is the winner, comp
         //6|7|8
 
     //asks player 1 for input and checks validity
+
+    //runs win checker to see if there is a winner or draw
 
     //computer randomly generates a number, if number is invalid regenerates a number
         //or make computer generate from a list of 0-8, with a number in the list being taken away if player 1 has already picked the space
