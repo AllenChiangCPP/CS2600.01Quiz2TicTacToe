@@ -1,5 +1,6 @@
 #include <stdio.h>
-//#include <stdlib.h>
+#include <stdlib.h>
+#include <time.h>
 //Tic Tac Toe game between 2 players or player vs computer
 
 int winChecker(char givenBoard[9]) //function that checks if there is a winner based on inputted array
@@ -202,29 +203,87 @@ int playerVsPlayer() //player vs player game, prints who is the winner
             break;
         }
     }
-    
     return 0;
 }
+
 int playerVsComputer() //player vs computer game, prints who is the winner, computer picks random numbers
 {
     //copy most of the code from player vs player, modify player 2 section 
     //encase in while loop for game duration, ends if there is a winner or draw
-
-    //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for computer
+    char gameBoard[9] = {'1','2','3','4','5','6','7','8','9'}; 
+    while(1)
+    {
+        //prints game board and current players turn, game board has numbers to indicate which spaces available, will be filled out with an X for player 1 or and O for computer
         //0|1|2
         //3|4|5
         //6|7|8
 
     //asks player 1 for input and checks validity
-
-    //runs win checker to see if there is a winner or draw
-
+        boardPrinter(gameBoard);
+        while (1)
+        {
+            int player1Input = 10;
+            printf("Player 1 Turn: \n");
+            scanf("%d", &player1Input);
+            if (gameBoard[player1Input-1] != 'X' && gameBoard[player1Input-1] != 'O' && player1Input > 0 && player1Input < 10)
+            {
+                gameBoard[player1Input-1] = 'X';
+                break;
+            }
+            printf("INVALID RESPONSE\n");
+            getchar();
+        }
+        //runs win checker to see if there is a winner or draw
+        if(winChecker(gameBoard) == 1)
+        {
+            printf("Player 1 wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 2)
+        {
+            printf("Computer wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 3)
+        {
+            printf("Draw!\n");
+            break;
+        }
+        
     //computer randomly generates a number, if number is invalid regenerates a number
         //or make computer generate from a list of 0-8, with a number in the list being taken away if player 1 has already picked the space
-
+    
+    printf("Computer Turn: \n");
+        while (1)
+        {
+            srand(time(NULL));
+            int computerInput = rand() % 9; 
+            //scanf("%d", &player2Input);
+            if (gameBoard[computerInput] != 'X' && gameBoard[computerInput] != 'O' && computerInput >= 0 && computerInput < 9)
+            {
+                printf("%d\n", computerInput+1);
+                gameBoard[computerInput] = 'O';
+                break;
+            }
+            //getchar();
+        }
+        if(winChecker(gameBoard) == 1)
+        {
+            printf("Player 1 wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 2)
+        {
+            printf("Computer wins!\n");
+            break;
+        }
+        else if(winChecker(gameBoard) == 3)
+        {
+            printf("Draw!\n");
+            break;
+        }
     //runs win checker to see if there is a winner or draw
-
-
+    }
     return 0;
 }
 
