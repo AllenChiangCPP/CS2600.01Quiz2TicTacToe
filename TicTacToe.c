@@ -3,6 +3,8 @@
 #include <time.h>
 //Tic Tac Toe game between 2 players or player vs computer
 
+//modify win checker by changing it to take in and check a 2d array 
+    //givenBoard[1] -> givenBoard[0][0], givenBoard[2] -> givenBoard[0][1], etc
 int winChecker(char givenBoard[9]) //function that checks if there is a winner based on inputted array
 {
     //0 1 2
@@ -114,6 +116,9 @@ int winChecker(char givenBoard[9]) //function that checks if there is a winner b
     }
     return 0;
 }
+
+//modify board printer to take in a 2d array instead of a regular array
+    //givenBoard[1] -> givenBoard[0][0], givenBoard[2] -> givenBoard[0][1], etc
 void boardPrinter(char givenBoard[9]) //fuction that takes a char array and prints the board
 {
     printf("+-----------+\n");
@@ -124,9 +129,13 @@ void boardPrinter(char givenBoard[9]) //fuction that takes a char array and prin
     printf("| %c | %c | %c | \n",givenBoard[6], givenBoard[7], givenBoard[8]);
     printf("+-----------+\n");
 }
+
+//modify to work with a 2d array, take 2 user inputs from same scanf line to represent row and column
 int playerVsPlayer() //player vs player game, prints who is the winner 
 {
     char gameBoard[9] = {'1','2','3','4','5','6','7','8','9'}; 
+    //make a blank 2d array to represent the gameboard
+    //char gameBoard[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}}; 
     while(1)
     {
         //create an empty board, an char array with a size of 8 to represent the grid, player 1 is represented as X while player 2 is represented as O
@@ -206,6 +215,8 @@ int playerVsPlayer() //player vs player game, prints who is the winner
     return 0;
 }
 
+//modify to work with a 2d array, take 2 user inputs from same scanf line to represent row and column
+//modify so 2 random number generators to generate a random row and random column for the computer
 int playerVsComputer() //player vs computer game, prints who is the winner, computer picks random numbers
 {
     //copy most of the code from player vs player, modify player 2 section 
