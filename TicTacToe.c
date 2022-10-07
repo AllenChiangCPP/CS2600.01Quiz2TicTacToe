@@ -154,19 +154,40 @@ int playerVsPlayer() //player vs player game, prints who is the winner
         boardPrinter(gameBoard);
         while (1)
         {
-            int player1RowInput = 3;
-            int player1ColumnInput = 3;
-            printf("Player 1 Turn. (row column): \n");
-            scanf("%d %d", &player1RowInput, &player1ColumnInput);
-            if (gameBoard[player1RowInput][player1ColumnInput] == ' ' && player1RowInput >= 0 && player1RowInput < 3 
-            && player1ColumnInput >= 0 && player1ColumnInput < 3)
+            int player1Row = 3;
+            int player1Column = 3;
+            while (1)
             {
-                gameBoard[player1RowInput][player1ColumnInput] = 'X';
+                int player1RowInput = 3;
+                printf("Player 1 Turn. Enter row: \n");
+                scanf("%d", &player1RowInput);
+                if (player1RowInput >= 0 && player1RowInput < 3)
+                {
+                    player1Row = player1RowInput;
+                    break;
+                }
+                printf("INVALID RESPONSE\n");
+                getchar();
+            }
+            while (1)
+            {
+                int player1ColumnInput = 3;
+                printf("Player 1 Turn. Enter column: \n");
+                scanf("%d", &player1ColumnInput);
+                if (player1ColumnInput >= 0 && player1ColumnInput < 3)
+                {
+                    player1Column = player1ColumnInput;
+                    break;
+                }
+                printf("INVALID RESPONSE\n");
+                getchar();
+            }
+            if (gameBoard[player1Row][player1Column] == ' ')
+            {
+                gameBoard[player1Row][player1Column] = 'X';
                 break;
             }
-            printf("INVALID RESPONSE\n");
-            getchar();
-            getchar();
+            printf("INVALID SPACE\n");
         }
         if(winChecker(gameBoard) == 1)
         {
@@ -189,19 +210,40 @@ int playerVsPlayer() //player vs player game, prints who is the winner
         boardPrinter(gameBoard);
         while (1)
         {
-            int player2RowInput = 3;
-            int player2ColumnInput = 3;
-            printf("Player 2 Turn. (row column): \n");
-            scanf("%d %d", &player2RowInput, &player2ColumnInput);
-            if (gameBoard[player2RowInput][player2ColumnInput] == ' ' && player2RowInput >= 0 && player2RowInput < 3 
-            && player2ColumnInput >= 0 && player2ColumnInput < 3)
+            int player2Row = 3;
+            int player2Column = 3;
+            while (1)
             {
-                gameBoard[player2RowInput][player2ColumnInput] = 'O';
+                int player2RowInput = 3;
+                printf("Player 2 Turn. Enter row: \n");
+                scanf("%d", &player2RowInput);
+                if (player2RowInput >= 0 && player2RowInput < 3)
+                {
+                    player2Row = player2RowInput;
+                    break;
+                }
+                printf("INVALID RESPONSE\n");
+                getchar();
+            }
+            while (1)
+            {
+                int player2ColumnInput = 3;
+                printf("Player 2 Turn. Enter column: \n");
+                scanf("%d", &player2ColumnInput);
+                if (player2ColumnInput >= 0 && player2ColumnInput < 3)
+                {
+                    player2Column = player2ColumnInput;
+                    break;
+                }
+                printf("INVALID RESPONSE\n");
+                getchar();
+            }
+            if (gameBoard[player2Row][player2Column] == ' ')
+            {
+                gameBoard[player2Row][player2Column] = 'O';
                 break;
             }
-            printf("INVALID RESPONSE\n");
-            getchar();
-            getchar();
+            printf("INVALID SPACE\n");
         }
         if(winChecker(gameBoard) == 1)
         {
@@ -236,24 +278,44 @@ int playerVsComputer() //player vs computer game, prints who is the winner, comp
         //0:|[0][0]|[0][0]|[0][0]|
         //1:|[0][0]|[0][0]|[0][0]|
         //2:|[0][0]|[0][0]|[0][0]|
-
     //asks player 1 for input and checks validity
         boardPrinter(gameBoard);
         while (1)
         {
-           int player1RowInput = 3;
-            int player1ColumnInput = 3;
-            printf("Player 1 Turn. (row column): \n");
-            scanf("%d %d", &player1RowInput, &player1ColumnInput);
-            if (gameBoard[player1RowInput][player1ColumnInput] == ' ' && player1RowInput >= 0 && player1RowInput < 3 
-            && player1ColumnInput >= 0 && player1ColumnInput < 3)
+            int player1Row = 3;
+            int player1Column = 3;
+            while (1)
             {
-                gameBoard[player1RowInput][player1ColumnInput] = 'X';
+                int player1RowInput = 3;
+                printf("Player 1 Turn. Enter row: \n");
+                scanf("%d", &player1RowInput);
+                if (player1RowInput >= 0 && player1RowInput < 3)
+                {
+                    player1Row = player1RowInput;
+                    break;
+                }
+                printf("INVALID RESPONSE\n");
+                getchar();
+            }
+            while (1)
+            {
+                int player1ColumnInput = 3;
+                printf("Player 1 Turn. Enter column: \n");
+                scanf("%d", &player1ColumnInput);
+                if (player1ColumnInput >= 0 && player1ColumnInput < 3)
+                {
+                    player1Column = player1ColumnInput;
+                    break;
+                }
+                printf("INVALID RESPONSE\n");
+                getchar();
+            }
+            if (gameBoard[player1Row][player1Column] == ' ')
+            {
+                gameBoard[player1Row][player1Column] = 'X';
                 break;
             }
-            printf("INVALID RESPONSE\n");
-            getchar();
-            getchar();
+            printf("INVALID SPACE\n");
         }
         //runs win checker to see if there is a winner or draw
         if(winChecker(gameBoard) == 1)
@@ -281,8 +343,7 @@ int playerVsComputer() //player vs computer game, prints who is the winner, comp
             srand(time(NULL));
             int computerRowInput = rand() % 3; 
             int computerColumnInput = rand() % 3;
-            if (gameBoard[computerRowInput][computerColumnInput] == ' ' && computerRowInput >= 0 && computerRowInput < 3 
-            && computerColumnInput >= 0 && computerColumnInput < 3)
+            if (gameBoard[computerRowInput][computerColumnInput] == ' ')
             {
                 printf("%d %d\n", computerRowInput, computerColumnInput);
                 gameBoard[computerRowInput][computerColumnInput] = 'O';
